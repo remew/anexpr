@@ -7,6 +7,8 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, 'dist'),
+    library: 'reactNativeAnimatedExpr',
+    libraryTarget: 'umd',
   },
   devtool: 'source-map',
   module: {
@@ -21,4 +23,7 @@ module.exports = {
       },
     ],
   },
+  externals: [
+    'react-native',
+  ],
 };

@@ -5,7 +5,8 @@
     "build": "webpack && flow gen-flow-files src/index.js > dist/bundle.js.flow",
     "test": "jest"
   },
-  "main": "index.js",
+  "main": "dist/bundle.js",
+  "module": "src/index.js",
   "repository": "git@github.com:remew/react-native-animated-expr.git",
   "author": "remew <foolishremew@gmail.com>",
   "license": "MIT",
