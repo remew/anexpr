@@ -10,6 +10,8 @@ export type VariableTree = {|
   value: string,
 |};
 
+export type OperandTree = NumberTree | VariableTree;
+
 export type AST = NumberTree | VariableTree;
 
 export interface IParser {

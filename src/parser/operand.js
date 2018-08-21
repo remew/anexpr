@@ -1,10 +1,10 @@
 // @flow
 import NumberParser from './number';
 import SyntaxError from '../util/SyntaxError';
-import type {Source, IParser, NumberTree, VariableTree} from '../types';
+import type {Source, IParser, OperandTree} from '../types';
 
 export default class OperandParser implements IParser {
-  parse(s: Source): NumberTree | VariableTree  {
+  parse(s: Source): OperandTree  {
     let token = '';
     while (s.str[s.pos] === ' ' || s.str[s.pos] === '\n') s.pos++; // skip whitespaces
 
