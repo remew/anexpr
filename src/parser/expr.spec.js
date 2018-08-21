@@ -1,7 +1,7 @@
 import ExprParser from './expr';
 
 describe('ExprParser', () => {
-  it('should be parse term', () => {
+  it('should be parse expr', () => {
     const p = new ExprParser();
     expect(p.parse({str: '$1 + 2 * $2', pos: 0})).toEqual({
       type: 'BinaryOperation',
