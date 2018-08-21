@@ -17,9 +17,6 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
-        options: {
-          presets: ['@babel/preset-flow', '@babel/preset-env'],
-        },
       },
     ],
   },
