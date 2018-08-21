@@ -1,6 +1,5 @@
 // @flow
 import FactorParser from './factor';
-import SyntaxError from '../util/SyntaxError';
 import type {Source, IParser, BinaryOperationTree} from '../types';
 
 export default class TermParser implements IParser {
