@@ -12,7 +12,16 @@ export type VariableTree = {|
 
 export type OperandTree = NumberTree | VariableTree;
 
-export type AST = NumberTree | VariableTree;
+export type OperatorEnum = '+' | '-' | '*' | '/';
+
+export type BinaryOperationTree = {|
+  type: 'BinaryOperation',
+  left: OperandTree | BinaryOperationTree,
+  operand: OperatorEnum,
+  right: OperandTree | BinaryOperationTree,
+|};
+
+export type AST = NumberTree | VariableTree | BinaryOperationTree;
 
 export interface IParser {
   parse(s: Source): AST;
