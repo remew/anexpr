@@ -12,6 +12,21 @@ describe('FactorParser', () => {
     expect(p.parse({str: '$1 + $2', pos: 0})).toEqual({type: 'Variable', value: '$1'});
     expect(p.parse({str: '$1 + $2', pos: 4})).toEqual({type: 'Variable', value: '$2'});
   });
+  it('should be parse expr', () => {
+    const p = new FactorParser();
+    expect(p.parse({str: '(2 + 3) * 3', pos: 0})).toEqual({
+      type: 'BinaryOperation',
+      left: {
+        type: 'NumberLiteral',
+        value: 2,
+      },
+      operator: '+',
+      right: {
+        type: 'NumberLiteral',
+        value: 3,
+      },
+    });
+  });
   it('may throw SyntaxError', () => {
     const p = new FactorParser();
     expect(() => p.parse({str: '1 + hoge', pos: 3})).toThrow(SyntaxError);

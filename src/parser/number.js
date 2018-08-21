@@ -9,7 +9,7 @@ export default class NumberParser implements IParser {
     while (s.str[s.pos] === ' ' || s.str[s.pos] === '\n') s.pos++; // skip whitespaces
     while (s.pos < s.str.length) {
       const c = s.str[s.pos];
-      if (c === ' ' || c === '\n') {
+      if (c === ' ' || c === '\n' || c === ')') {
         break;
       }
       token += c;
