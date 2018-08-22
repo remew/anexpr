@@ -1,9 +1,9 @@
 // @flow
 import TermParser from './term';
-import type {Source, IParser, BinaryOperationTree} from '../types';
+import type {Source, IParser, AST} from '../types';
 
 export default class ExprParser implements IParser {
-  parse(s: Source): BinaryOperationTree {
+  parse(s: Source): AST {
     while (s.str[s.pos] === ' ' || s.str[s.pos] === '\n') s.pos++; // skip whitespaces
     const termParser: TermParser = new TermParser();
 

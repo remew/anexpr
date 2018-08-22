@@ -1,9 +1,9 @@
 // @flow
 import FactorParser from './factor';
-import type {Source, IParser, BinaryOperationTree} from '../types';
+import type {Source, IParser, AST} from '../types';
 
 export default class TermParser implements IParser {
-  parse(s: Source): BinaryOperationTree {
+  parse(s: Source): AST {
     while (s.str[s.pos] === ' ' || s.str[s.pos] === '\n') s.pos++; // skip whitespaces
     const factorParser: FactorParser = new FactorParser();
 
