@@ -9,8 +9,8 @@ describe('OperandParser', () => {
   });
   it('should be parse variable', () => {
     const p = new OperandParser();
-    expect(p.parse({str: '$1 + $2', pos: 0})).toEqual({type: 'Variable', value: '$1'});
-    expect(p.parse({str: '$1 + $2', pos: 4})).toEqual({type: 'Variable', value: '$2'});
+    expect(p.parse({str: '$1 + $2', pos: 0})).toEqual({type: 'Variable', id: '$1'});
+    expect(p.parse({str: '$1 + $2', pos: 4})).toEqual({type: 'Variable', id: '$2'});
   });
   it('may throw SyntaxError', () => {
     const p = new OperandParser();

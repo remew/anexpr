@@ -6,7 +6,7 @@ export default function evalAst(ast: AST, variables: Object, operation: {add: Fu
     return ast.value;
   }
   if (ast.type === 'Variable') {
-    return variables[ast.value];
+    return variables[ast.id];
   }
   if (ast.type === 'BinaryOperation') {
     const {operator} = ast;

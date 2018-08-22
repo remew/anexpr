@@ -17,10 +17,15 @@ export default class OperandParser implements IParser {
       const numberParser: NumberParser = new NumberParser();
       const numberTree: NumberTree = numberParser.parse(s);
       const num: number = numberTree.value;
-      const value = type === 'Variable' ? '$' + num : num;
+      if (type === 'Variable') {
+        return {
+          type,
+          id: `$${num}`,
+        };
+      }
       return {
         type,
-        value,
+        value: num,
       }
     } catch (e) {
       throw new SyntaxError(`it should be variable or number. ${s.str[s.pos]} is not beginning of variable or valid number`);

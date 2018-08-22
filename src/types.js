@@ -7,7 +7,7 @@ export type NumberTree = {|
 
 export type VariableTree = {|
   type: 'Variable',
-  value: string,
+  id: string,
 |};
 
 export type OperandTree = NumberTree | VariableTree;

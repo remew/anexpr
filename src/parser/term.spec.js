@@ -9,7 +9,7 @@ describe('TermParser', () => {
         type: 'BinaryOperation',
         left: {
           type: 'Variable',
-          value: '$1',
+          id: '$1',
         },
         operator: '*',
         right: {
@@ -24,7 +24,7 @@ describe('TermParser', () => {
       }
     });
     expect(p.parse({str: '1', pos: 0})).toEqual({type: 'NumberLiteral', value: 1});
-    expect(p.parse({str: '$1', pos: 0})).toEqual({type: 'Variable', value: '$1'});
+    expect(p.parse({str: '$1', pos: 0})).toEqual({type: 'Variable', id: '$1'});
   });
   // TODO: error test
 });

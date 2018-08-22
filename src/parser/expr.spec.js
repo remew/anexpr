@@ -7,7 +7,7 @@ describe('ExprParser', () => {
       type: 'BinaryOperation',
       left: {
         type: 'Variable',
-        value: '$1',
+        id: '$1',
       },
       operator: '+',
       right: {
@@ -19,12 +19,12 @@ describe('ExprParser', () => {
         operator: '*',
         right: {
           type: 'Variable',
-          value: '$2',
+          id: '$2',
         },
       },
     });
     expect(p.parse({str: '1', pos: 0})).toEqual({type: 'NumberLiteral', value: 1});
-    expect(p.parse({str: '$1', pos: 0})).toEqual({type: 'Variable', value: '$1'});
+    expect(p.parse({str: '$1', pos: 0})).toEqual({type: 'Variable', id: '$1'});
   });
   it('should be parse complex expr', () => {
     const p = new ExprParser();
@@ -36,7 +36,7 @@ describe('ExprParser', () => {
           type: 'BinaryOperation',
           left: {
             type: 'Variable',
-            value: '$1',
+            id: '$1',
           },
           operator: '+',
           right: {
@@ -47,7 +47,7 @@ describe('ExprParser', () => {
         operator: '*',
         right: {
           type: 'Variable',
-          value: '$2',
+          id: '$2',
         },
       },
       operator: '+',
@@ -57,12 +57,12 @@ describe('ExprParser', () => {
           type: 'BinaryOperation',
           left: {
             type: 'Variable',
-            value: '$1',
+            id: '$1',
           },
           operator: '+',
           right: {
             type: 'Variable',
-            value: '$2',
+            id: '$2',
           },
         },
         operator: '/',
