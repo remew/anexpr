@@ -5,7 +5,6 @@ import type {Source, IParser, NumberTree, OperandTree} from '../types';
 
 export default class OperandParser implements IParser {
   parse(s: Source): OperandTree  {
-    let token = '';
     while (s.str[s.pos] === ' ' || s.str[s.pos] === '\n') s.pos++; // skip whitespaces
 
     const type = (s.str[s.pos] === '$') ? 'Variable' : 'NumberLiteral';
