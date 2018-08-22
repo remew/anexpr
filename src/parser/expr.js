@@ -8,7 +8,7 @@ export default class ExprParser implements IParser {
     const termParser: TermParser = new TermParser();
 
     let left: AST = termParser.parse(s);
-    while (true) {
+    while (s.pos < s.str.length) {
       while (s.str[s.pos] === ' ' || s.str[s.pos] === '\n') s.pos++; // skip whitespaces
       if (s.pos === s.str.length) {
         return left;
@@ -33,5 +33,6 @@ export default class ExprParser implements IParser {
           return left;
       }
     }
+    return left;
   }
 }

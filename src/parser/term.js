@@ -8,7 +8,7 @@ export default class TermParser implements IParser {
     const factorParser: FactorParser = new FactorParser();
 
     let left: AST = factorParser.parse(s);
-    while (true) {
+    while (s.pos < s.str.length) {
       while (s.str[s.pos] === ' ' || s.str[s.pos] === '\n') s.pos++; // skip whitespaces
       if (s.pos === s.str.length) {
         return left;
@@ -33,5 +33,6 @@ export default class TermParser implements IParser {
           return left;
       }
     }
+    return left;
   }
 }
