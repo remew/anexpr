@@ -7,7 +7,7 @@ export default class ExprParser implements IParser {
     while (s.str[s.pos] === ' ' || s.str[s.pos] === '\n') s.pos++; // skip whitespaces
     const termParser: TermParser = new TermParser();
 
-    let left = termParser.parse(s);
+    let left: AST = termParser.parse(s);
     while (true) {
       while (s.str[s.pos] === ' ' || s.str[s.pos] === '\n') s.pos++; // skip whitespaces
       if (s.pos === s.str.length) {
@@ -21,7 +21,7 @@ export default class ExprParser implements IParser {
           s.pos++;
           while (s.str[s.pos] === ' ' || s.str[s.pos] === '\n') s.pos++; // skip whitespaces
           const right = termParser.parse(s);
-          const tree = {
+          const tree: AST = {
             type: 'BinaryOperation',
             left,
             operand,
