@@ -25,5 +25,12 @@
   },
   "peerDependencies": {
     "react-native": "^0.56.0"
-  }
+  },
+  "files": [
+    "dist",
+    "src",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ]
 }
