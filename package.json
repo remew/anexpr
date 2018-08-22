@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "build": "webpack && flow gen-flow-files src/index.js > dist/bundle.js.flow",
+    "flow": "flow",
     "test": "jest"
   },
   "main": "dist/bundle.js",
