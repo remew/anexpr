@@ -1,7 +1,7 @@
 // @flow
 import NumberParser from './number';
 import SyntaxError from '../util/SyntaxError';
-import type {Source, IParser, OperandTree} from '../types';
+import type {Source, IParser, NumberTree, OperandTree} from '../types';
 
 export default class OperandParser implements IParser {
   parse(s: Source): OperandTree  {
