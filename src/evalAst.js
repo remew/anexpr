@@ -9,11 +9,11 @@ export default function evalAst(ast: AST, variables: Object, operation: {add: Fu
     return variables[ast.id];
   }
   if (ast.type === 'BinaryOperation') {
-    const {operator} = ast;
+    const {operand} = ast;
     const left = evalAst(ast.left, variables, operation);
     const right = evalAst(ast.right, variables, operation);
 
-    switch (operator) {
+    switch (operand) {
       case '+':
         return operation.add(left, right);
       case '-':

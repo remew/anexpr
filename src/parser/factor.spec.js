@@ -20,7 +20,7 @@ describe('FactorParser', () => {
         type: 'NumberLiteral',
         value: 2,
       },
-      operator: '+',
+      operand: '+',
       right: {
         type: 'NumberLiteral',
         value: 3,

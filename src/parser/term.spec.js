@@ -11,13 +11,13 @@ describe('TermParser', () => {
           type: 'Variable',
           id: '$1',
         },
-        operator: '*',
+        operand: '*',
         right: {
           type: 'NumberLiteral',
           value: 2,
         },
       },
-      operator: '/',
+      operand: '/',
       right: {
         type: 'NumberLiteral',
         value: 3,

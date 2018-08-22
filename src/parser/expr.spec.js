@@ -9,14 +9,14 @@ describe('ExprParser', () => {
         type: 'Variable',
         id: '$1',
       },
-      operator: '+',
+      operand: '+',
       right: {
         type: 'BinaryOperation',
         left: {
           type: 'NumberLiteral',
           value: 2,
         },
-        operator: '*',
+        operand: '*',
         right: {
           type: 'Variable',
           id: '$2',
@@ -38,19 +38,19 @@ describe('ExprParser', () => {
             type: 'Variable',
             id: '$1',
           },
-          operator: '+',
+          operand: '+',
           right: {
             type: 'NumberLiteral',
             value: 2,
           },
         },
-        operator: '*',
+        operand: '*',
         right: {
           type: 'Variable',
           id: '$2',
         },
       },
-      operator: '+',
+      operand: '+',
       right: {
         type: 'BinaryOperation',
         left: {
@@ -59,13 +59,13 @@ describe('ExprParser', () => {
             type: 'Variable',
             id: '$1',
           },
-          operator: '+',
+          operand: '+',
           right: {
             type: 'Variable',
             id: '$2',
           },
         },
-        operator: '/',
+        operand: '/',
         right: {
           type: 'NumberLiteral',
           value: 2,

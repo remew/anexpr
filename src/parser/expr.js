@@ -17,14 +17,14 @@ export default class ExprParser implements IParser {
       switch (s.str[s.pos]) {
         case '+':
         case '-':
-          const operator = s.str[s.pos];
+          const operand = s.str[s.pos];
           s.pos++;
           while (s.str[s.pos] === ' ' || s.str[s.pos] === '\n') s.pos++; // skip whitespaces
           const right = termParser.parse(s);
           const tree = {
             type: 'BinaryOperation',
             left,
-            operator,
+            operand,
             right,
           };
           left = tree;
