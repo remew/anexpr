@@ -32,5 +32,12 @@
     "LICENSE",
     "README.md",
     "package.json"
+  ],
+  "keywords": [
+    "react-native",
+    "animated",
+    "animation",
+    "transition",
+    "ui"
   ]
 }
