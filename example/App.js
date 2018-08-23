@@ -17,8 +17,6 @@ type State = {
   value: Animated.Value,
   bigAreaWidth: Animated.Node,
   bigAreaHeight: Animated.Node,
-  middleAreaWidth: Animated.Node,
-  middleAreaHeight: Animated.Node,
   smallAreaWidth: Animated.Node,
   smallAreaHeight: Animated.Node,
   offset: Animated.Node,
