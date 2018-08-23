@@ -7,23 +7,83 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import {Animated, Button, StyleSheet, View} from 'react-native';
+import anexpr from 'anexpr';
 
 type Props = {};
-export default class App extends Component<Props> {
+type State = {
+  width: number,
+  height: number,
+  value: Animated.Value,
+  bigAreaWidth: Animated.Node,
+  bigAreaHeight: Animated.Node,
+  middleAreaWidth: Animated.Node,
+  middleAreaHeight: Animated.Node,
+  smallAreaWidth: Animated.Node,
+  smallAreaHeight: Animated.Node,
+  offset: Animated.Node,
+  sideOffset: Animated.Node,
+};
+
+export default class App extends Component<Props, State> {
+  constructor(props) {
+    super(props);
+    const width = new Animated.Value(0);
+    const height = new Animated.Value(0);
+    const bigAreaWidth = anexpr`${width} * (3 / 5)`;
+    const bigAreaHeight = anexpr`${bigAreaWidth} * (9 / 16)`;
+    const smallAreaWidth = anexpr`${bigAreaWidth} / 2`;
+    const smallAreaHeight = anexpr`${smallAreaWidth} * (9 / 16)`;
+    const offset = anexpr`(${height} - (${bigAreaHeight} + ${smallAreaHeight})) / 2`;
+    const sideOffset = anexpr`(${width} - ${bigAreaWidth}) / 2`;
+    this.state = {
+      width,
+      height,
+      offset,
+      sideOffset,
+      bigAreaWidth,
+      bigAreaHeight,
+      smallAreaWidth,
+      smallAreaHeight,
+    };
+  }
+
+  _onLayout(e) {
+    const {layout} = e.nativeEvent;
+    this.state.width.setValue(layout.width);
+    this.state.height.setValue(layout.height);
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+      <View onLayout={e => this._onLayout(e)} style={styles.container}>
+        <Animated.View style={[
+          styles.view1,
+          {
+            top: this.state.offset,
+            left: this.state.sideOffset,
+            width: this.state.bigAreaWidth,
+            height: this.state.bigAreaHeight
+          }
+        ]}/>
+        <Animated.View style={[
+          styles.view2,
+          {
+            bottom: this.state.offset,
+            left: this.state.sideOffset,
+            width: this.state.smallAreaWidth,
+            height: this.state.smallAreaHeight
+          }
+        ]}/>
+        <Animated.View style={[
+          styles.view3,
+          {
+            bottom: this.state.offset,
+            right: this.state.sideOffset,
+            width: this.state.smallAreaWidth,
+            height: this.state.smallAreaHeight
+          }
+        ]}/>
       </View>
     );
   }
@@ -32,18 +92,18 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  view1: {
+    position: 'absolute',
+    backgroundColor: '#f00',
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  view2: {
+    position: 'absolute',
+    backgroundColor: '#0f0',
+  },
+  view3: {
+    position: 'absolute',
+    backgroundColor: '#00f',
   },
 });
