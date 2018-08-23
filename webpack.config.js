@@ -7,7 +7,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, 'dist'),
-    library: 'reactNativeAnimatedExpr',
+    library: 'anexpr',
     libraryTarget: 'umd',
   },
   devtool: 'source-map',

@@ -1,5 +1,5 @@
 {
-  "name": "react-native-animated-expr",
+  "name": "anexpr",
   "version": "0.0.0",
   "scripts": {
     "build": "webpack && flow gen-flow-files src/index.js > dist/bundle.js.flow",
@@ -8,7 +8,7 @@
   },
   "main": "dist/bundle.js",
   "module": "src/index.js",
-  "repository": "git@github.com:remew/react-native-animated-expr.git",
+  "repository": "git@github.com:remew/anexpr.git",
   "author": "remew <foolishremew@gmail.com>",
   "license": "MIT",
   "devDependencies": {
