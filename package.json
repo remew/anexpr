@@ -1,6 +1,6 @@
 {
   "name": "anexpr",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "build": "webpack && flow gen-flow-files src/index.js > dist/bundle.js.flow",
     "flow": "flow",
@@ -32,5 +32,12 @@
     "LICENSE",
     "README.md",
     "package.json"
+  ],
+  "keywords": [
+    "react-native",
+    "animated",
+    "animation",
+    "transition",
+    "ui"
   ]
 }
